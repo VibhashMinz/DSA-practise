@@ -16,7 +16,7 @@ Single-element array
 
 */
 
-//Approach 1 — Split and Merge (Using Extra Array / List)
+//Approach 1 — Split and Merge (Using Extra Array / List)  Space Complexity - O(n) Time Complexity O(n)
 List<int> rotateArrayUsingSplit(List<int> numbers, int k) {
   int n = numbers.length;
   if (n == 0) return numbers;
@@ -36,6 +36,31 @@ List<int> rotateArrayUsingSplit(List<int> numbers, int k) {
   return result;
 }
 
+//Approach 2: Reverse Method (In-place) ---- Space Complexity - O(1) Time Complexity - O(n)
+
+rotate(List<int> nums, int k) {
+  int n = nums.length;
+  if (n == 0) return;
+
+  k = k % n;
+  if (k == 0) return;
+  reverse(nums, 0, n - 1); // reverse whole elements of the array
+  reverse(nums, 0, k - 1);
+  reverse(nums, k, n - 1);
+  return nums;
+}
+
+void reverse(List<int> numbers, int start, int end) {
+  while (start < end) {
+    int temp = numbers[start];
+    numbers[start] = numbers[end];
+    numbers[end] = temp;
+    start++;
+    end--;
+  }
+}
+
 void main() {
-  print(rotateArrayUsingSplit([1, 2, 3, 4, 5, 6, 7], 3));
+  print(rotateArrayUsingSplit([2, 3, 4, 5, 6, 7], 3));
+  print(rotate([2, 3, 4, 5, 6, 7], 3));
 }
