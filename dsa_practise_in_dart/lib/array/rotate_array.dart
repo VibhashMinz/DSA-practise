@@ -38,7 +38,7 @@ List<int> rotateArrayUsingSplit(List<int> numbers, int k) {
 
 //Approach 2: Reverse Method (In-place) ---- Space Complexity - O(1) Time Complexity - O(n)
 
-rotate(List<int> nums, int k) {
+rotateRightInPlace(List<int> nums, int k) {
   int n = nums.length;
   if (n == 0) return;
 
@@ -62,5 +62,5 @@ void reverse(List<int> numbers, int start, int end) {
 
 void main() {
   print(rotateArrayUsingSplit([2, 3, 4, 5, 6, 7], 3));
-  print(rotate([2, 3, 4, 5, 6, 7], 3));
+  print(rotateRightInPlace([2, 3, 4, 5, 6, 7], 3));
 }
